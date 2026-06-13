@@ -1,0 +1,11 @@
+╭─── Claude Code v2.1.177 ─────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting        │
+│                 Welcome back Ridhi!                │ started                 │
+│                                                    │ Run /init to create a … │
+│                       ▐▛███▜▌                      │ ─────────────────────── │
+│                      ▝▜█████▛▘                     │ What's new              │
+│                        ▘▘ ▝▝                       │ Session titles are now… │
+│  Sonnet 4.6 · Claude Pro · ridhikum17@gmail.com's  │ Added `footerLinksRege… │
+│  Organization                                      │ Improved Bedrock crede… │
+│   ~\Downloads\bhume-starter-kit\bhume-starter-kit  │ /release-notes for more │
+╰──────────────────────────────────────────────────────────────────────────────╯

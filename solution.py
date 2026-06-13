@@ -7,10 +7,20 @@ from bhume import load, score, write_predictions
 from bhume.baseline import global_median_shift
 
 
+def _confidence_from_area_ratio(deviation: float) -> float:
+    if deviation < 0.1:
+        return 0.85
+    if deviation < 0.2:
+        return 0.75
+    if deviation < 0.35:
+        return 0.65
+    return 0.55
+
+
 def make_predictions(village_dir: str):
     village = load(village_dir)
 
-    preds = global_median_shift(village, confidence=0.55)
+    preds = global_median_shift(village)
     plots = village.plots
 
     recorded_total_sqm = (
@@ -26,8 +36,10 @@ def make_predictions(village_dir: str):
         | (area_ratio > 1.55)
     )
 
+    deviation = (area_ratio - 1).abs()
+    preds["confidence"] = deviation.apply(_confidence_from_area_ratio)
     preds["method_note"] = (
-        "corrected with median village-wide shift; area check used for restraint"
+        "corrected with median village-wide shift; confidence from area-ratio agreement"
     )
 
     preds.loc[suspicious_area, "status"] = "flagged"
